@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Ninjas from './Ninjas';
-
+import AddForm from './AddForm';
 class App extends Component {
   state = {
     ninjas: [
@@ -9,11 +9,20 @@ class App extends Component {
       { name: 'mario', belt: 'red', age: 17, id: 3 }
     ]
   };
+
+  addNinja = ninja => {
+    ninja.id = Math.random();
+    const newState = [...this.state.ninjas, ninja];
+    this.setState({
+      ninjas: newState
+    });
+  };
   render() {
     return (
       <div className="App">
         <h1>Welcome to React!</h1>
         <Ninjas ninjas={this.state.ninjas} />
+        <AddForm addNinja={this.addNinja} />
       </div>
     );
   }
