@@ -17,11 +17,19 @@ class App extends Component {
       ninjas: newState
     });
   };
+
+  deleteNinja = id => {
+    const ninjas = [...this.state.ninjas];
+    const filteredNinjas = ninjas.filter(ninja => ninja.id !== id);
+    this.setState({
+      ninjas: filteredNinjas
+    });
+  };
   render() {
     return (
       <div className="App">
         <h1>Welcome to React!</h1>
-        <Ninjas ninjas={this.state.ninjas} />
+        <Ninjas ninjas={this.state.ninjas} deleteNinja={this.deleteNinja} />
         <AddForm addNinja={this.addNinja} />
       </div>
     );
