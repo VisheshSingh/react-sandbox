@@ -6,7 +6,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         Welcome to React!
-        <Ninjas />
+        <Ninjas name="Ryu" belt="Black" age="25" />
+        <Ninjas name="Yoshi" belt="green" age="16" />
       </header>
     </div>
   );
